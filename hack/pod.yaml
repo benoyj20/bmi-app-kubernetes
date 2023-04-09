@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bmi-app-pod
+  labels:
+    app: bmi-app
+spec:
+  containers:
+  - name: bmi-app
+    image: benoyj13azureservices.azurecr.io/bmi-app
+    ports:
+    - containerPort: 8501
+    command: ["streamlit", "run", "app.py"]
+    env:
+    - name: MY_ENV_VAR
+      value: my_value
